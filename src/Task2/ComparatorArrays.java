@@ -11,12 +11,16 @@ public class ComparatorArrays {
         boolean result = false;
         // Проверка на равенство длины массивов
         if (array1.length == array2.length) {
-            // Проверка на совпадение типов элементов
-            if (array1.getClass().getComponentType().equals(array2.getClass().getComponentType())) {
-                result = true;// Массивы одинаковые
+            // Проверка на совпадение типов элементов по парно по индексам
+            for (int i = 0; i < array1.length; i++) {
+                if (array1[i].getClass().equals(array2[i].getClass())) {
+                    result = true;// Массивы одинаковые
+                } else {
+                    result = false;
+                    break;
+                }
             }
         }
-
         return result;
     }
 
